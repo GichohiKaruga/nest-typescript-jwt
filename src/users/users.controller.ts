@@ -58,6 +58,7 @@ export class UsersController {
     @Post('register')
     public async register(@Response() res, @Body() createUserData: UsersData) {
         const result = await this.authService.register(createUserData);
+
         if (!result.success) {
             return res.status(HttpStatus.BAD_REQUEST).json(result);
         }
